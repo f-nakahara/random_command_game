@@ -13,10 +13,26 @@ class PlayerController extends StateNotifier<AsyncValue<List<Player>>> {
 
   /// 同期
   Future<void> _fetch() async {
+    final date = DateTime.now();
     final players = [
-      Player(id: '1', name: 'Player1', isSelected: true),
-      Player(id: '2', name: 'Player2', isSelected: true),
-      Player(id: '3', name: 'Player3', isSelected: true),
+      Player(
+          id: '1',
+          name: 'Player1',
+          isSelected: true,
+          createdAt: date,
+          updatedAt: date),
+      Player(
+          id: '2',
+          name: 'Player2',
+          isSelected: true,
+          createdAt: date,
+          updatedAt: date),
+      Player(
+          id: '3',
+          name: 'Player3',
+          isSelected: true,
+          createdAt: date,
+          updatedAt: date),
     ];
     state = AsyncData(players);
   }
@@ -30,7 +46,14 @@ class PlayerController extends StateNotifier<AsyncValue<List<Player>>> {
 
   /// プレイヤー作成
   Future<void> createPlayer({required String name}) async {
-    final player = Player(id: 'name', name: name, isSelected: true);
+    final date = DateTime.now();
+    final player = Player(
+      id: 'name',
+      name: name,
+      isSelected: true,
+      createdAt: date,
+      updatedAt: date,
+    );
     final players = state.data!.value;
     players.add(player);
     state = AsyncData(players);
@@ -38,9 +61,15 @@ class PlayerController extends StateNotifier<AsyncValue<List<Player>>> {
 
   /// プレイヤー更新
   Future<void> updatePlayer(String id, {bool? isSelected}) async {
+    final date = DateTime.now();
     final player = state.data!.value.singleWhere((element) => element.id == id);
     final newPlayer = Player(
-        id: id, name: player.name, isSelected: isSelected ?? player.isSelected);
+      id: id,
+      name: player.name,
+      isSelected: isSelected ?? player.isSelected,
+      createdAt: player.createdAt,
+      updatedAt: date,
+    );
     final players = state.data!.value;
     final index = players.indexWhere((element) => element == player);
     if (index != -1) {

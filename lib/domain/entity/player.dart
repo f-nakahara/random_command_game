@@ -5,6 +5,8 @@ class Player extends Equatable {
     required this.id,
     required this.name,
     required this.isSelected,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   /// ID
@@ -15,6 +17,12 @@ class Player extends Equatable {
 
   /// 選択されているか
   final bool isSelected;
+
+  /// 作成日時
+  final DateTime createdAt;
+
+  /// 更新日時
+  final DateTime updatedAt;
 
   @override
   List<Object?> get props => [id];
