@@ -40,4 +40,14 @@ class SQLPlayer {
       updatedAt: DateTime.fromMillisecondsSinceEpoch(updatedAt),
     );
   }
+
+  static Map<String, dynamic> convertToMap(Player player) {
+    return {
+      keyId: player.id,
+      keyName: player.name,
+      keyIsSelected: player.isSelected ? 1 : 0,
+      keyCreatedAt: player.createdAt.millisecondsSinceEpoch,
+      keyUpdatedAt: player.updatedAt.millisecondsSinceEpoch,
+    };
+  }
 }
