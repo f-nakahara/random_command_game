@@ -10,32 +10,57 @@ class PlayerDatasourceInSqflite implements IPlayerDatasource {
 
   @override
   Future<SQLPlayer> find(String id) async {
-    // TODO: implement find
-    throw UnimplementedError();
+    final db = await _getDatabase();
+    final result = await db.query(
+      _tableName,
+      where: '${SQLPlayer.keyId}=?',
+      whereArgs: [id],
+    );
+    if (result.isEmpty) {
+      throw Exception();
+    }
+    final map = result.first;
+    final data = SQLPlayer.fromMap(map);
+    return data;
   }
 
   @override
   Future<List<SQLPlayer>> findAll() async {
-    // TODO: implement findAll
-    throw UnimplementedError();
+    final db = await _getDatabase();
+    final result = await db.query(_tableName, orderBy: SQLPlayer.keyCreatedAt);
+    if (result.isEmpty) {
+      throw Exception();
+    }
+    return result.map((e) => SQLPlayer.fromMap(e)).toList();
   }
 
   @override
   Future<void> save(Player player) async {
-    // TODO: implement save
-    throw UnimplementedError();
+    final db = await _getDatabase();
+    final map = SQLPlayer.convertToMap(player);
+    await db.insert(_tableName, map);
   }
 
   @override
   Future<void> update(Player player) async {
-    // TODO: implement update
-    throw UnimplementedError();
+    final db = await _getDatabase();
+    final map = SQLPlayer.convertToMap(player);
+    await db.update(
+      _tableName,
+      map,
+      where: '${SQLPlayer.keyId}=?',
+      whereArgs: [player.id],
+    );
   }
 
   @override
   Future<void> delete(String id) async {
-    // TODO: implement delete
-    throw UnimplementedError();
+    final db = await _getDatabase();
+    await db.delete(
+      _tableName,
+      where: '${SQLPlayer.keyId}=?',
+      whereArgs: [id],
+    );
   }
 
   Future<Database> _getDatabase() async {
