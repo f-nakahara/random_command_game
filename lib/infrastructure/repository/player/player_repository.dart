@@ -1,0 +1,58 @@
+import 'package:random_command_game/domain/entity/player.dart';
+import 'package:random_command_game/domain/repository/i_player_repository.dart';
+import 'package:random_command_game/infrastructure/datasource/player/i_player_datasource.dart';
+
+class PlayerRepository implements IPlayerRepository {
+  PlayerRepository({
+    required IPlayerDatasource localDatasource,
+  }) : _localDatasource = localDatasource;
+
+  final IPlayerDatasource _localDatasource;
+  @override
+  Future<Player> find(String id) async {
+    try {
+      final data = await _localDatasource.find(id);
+      final player = data.toPlayer();
+      return player;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<List<Player>> findAll() async {
+    try {
+      final data = await _localDatasource.findAll();
+      return data.map((e) => e.toPlayer()).toList();
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> save(Player player) async {
+    try {
+      await _localDatasource.save(player);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> update(Player player) async {
+    try {
+      await _localDatasource.update(player);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> delete(String id) async {
+    try {
+      await _localDatasource.delete(id);
+    } catch (e) {
+      rethrow;
+    }
+  }
+}
