@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-class Member extends Equatable {
-  const Member({
+class Player extends Equatable {
+  const Player({
     required this.id,
     required this.name,
     required this.isSelected,
