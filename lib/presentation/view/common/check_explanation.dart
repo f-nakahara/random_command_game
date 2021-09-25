@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:random_command_game/core/l10n/app_localizations.dart';
 
 class CheckExplanation extends StatelessWidget {
   const CheckExplanation({
@@ -10,6 +11,7 @@ class CheckExplanation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('使用する$subjectにチェックを入れてください。');
+    final localization = AppLocalizations.of(context)!;
+    return Text(localization.checkExplanation(subject));
   }
 }

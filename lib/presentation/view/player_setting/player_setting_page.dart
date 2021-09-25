@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:random_command_game/presentation/view/common/add_explanation.dart';
 import 'package:random_command_game/presentation/view/common/check_explanation.dart';
-import 'package:random_command_game/presentation/view/common/create_explanation.dart';
 import 'package:random_command_game/presentation/view/player_setting/widget/player_list/player_list.dart';
 
 /// プレイヤー設定画面
@@ -17,7 +17,7 @@ class PlayerSettingPage extends StatelessWidget {
         child: Column(
           children: const [
             CheckExplanation(subject: 'プレイヤー'),
-            CreateExplanation(subject: 'プレイヤー'),
+            AddExplanation(subject: 'プレイヤー'),
             Expanded(child: PlayerList()),
           ],
         ),
