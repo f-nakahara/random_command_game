@@ -5,7 +5,6 @@ analyzer:
     import_of_legacy_library_into_null_safe: false
   exclude:
     - "lib/generated_plugin_registrant.dart"
-    - "lib/l10n/*"
     - "**.g.dart"
     - "**.freezed.dart"
 
