@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class Penalty extends Equatable {
-  Penalty({
+  const Penalty({
     required this.id,
     required this.name,
   });

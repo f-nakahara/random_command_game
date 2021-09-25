@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class Target extends Equatable {
-  Target({
+  const Target({
     required this.id,
     required this.name,
   });
