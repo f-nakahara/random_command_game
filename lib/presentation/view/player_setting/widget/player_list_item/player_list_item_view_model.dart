@@ -12,5 +12,7 @@ class PlayerListItemViewModel extends StateNotifier<PlayerListItemState> {
   }
 
   /// 削除
-  Future<void> delete() async {}
+  Future<void> delete() async {
+    debugPrint('項目を削除します。');
+  }
 }
