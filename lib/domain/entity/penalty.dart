@@ -1,4 +1,6 @@
-class Penalty {
+import 'package:equatable/equatable.dart';
+
+class Penalty extends Equatable {
   Penalty({
     required this.id,
     required this.name,
@@ -9,4 +11,7 @@ class Penalty {
 
   /// 名前
   final String name;
+
+  @override
+  List<Object?> get props => [id];
 }

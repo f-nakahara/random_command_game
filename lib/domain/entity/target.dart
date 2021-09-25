@@ -1,4 +1,6 @@
-class Target {
+import 'package:equatable/equatable.dart';
+
+class Target extends Equatable {
   Target({
     required this.id,
     required this.name,
@@ -9,4 +11,7 @@ class Target {
 
   /// 名前
   final String name;
+
+  @override
+  List<Object?> get props => [id];
 }
