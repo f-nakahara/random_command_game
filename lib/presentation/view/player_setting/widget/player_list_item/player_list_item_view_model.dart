@@ -18,9 +18,8 @@ class PlayerListItemViewModel extends StateNotifier<PlayerListItemState> {
 
   /// 参加・不参加
   void toggle() {
-    final newState = state;
-    newState.isSelected = !state.isSelected;
-    state = newState;
+    final isSelected = !state.isSelected;
+    state = state.copyWith(isSelected: isSelected);
   }
 
   /// 削除
