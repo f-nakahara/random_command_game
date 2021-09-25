@@ -1,3 +1,17 @@
 {
-  "@@locale": "ja"
+  "@@locale": "ja",
+
+  "player": "プレイヤー",
+  "checkExplanation": "使用する{subject}にチェックを入れてください。",
+  "@checkExplanation": {
+    "placeholders": {
+      "subject": {}
+    }
+  },
+  "addExplanation": "{subject}を新しく追加する場合は「+」ボタンを押してください。",
+  "@addExplanation": {
+    "placeholders": {
+      "subject": {}
+    }
+  }
 }

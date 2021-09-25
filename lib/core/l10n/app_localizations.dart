@@ -94,6 +94,23 @@ abstract class AppLocalizations {
     Locale('ja')
   ];
 
+  /// No description provided for @player.
+  ///
+  /// In en, this message translates to:
+  /// **'Player'**
+  String get player;
+
+  /// No description provided for @checkExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'Please check the {subject} to use.'**
+  String checkExplanation(Object subject);
+
+  /// No description provided for @addExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'Press the 「+」 button to add a new {subject}.'**
+  String addExplanation(Object subject);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

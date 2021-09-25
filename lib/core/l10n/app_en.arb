@@ -1,3 +1,17 @@
 {
-  "@@locale": "en"
+  "@@locale": "en",
+
+  "player": "Player",
+  "checkExplanation": "Please check the {subject} to use.",
+  "@checkExplanation": {
+    "placeholders": {
+      "subject": {}
+    }
+  },
+  "addExplanation": "Press the 「+」 button to add a new {subject}.",
+  "@addExplanation": {
+    "placeholders": {
+      "subject": {}
+    }
+  }
 }
