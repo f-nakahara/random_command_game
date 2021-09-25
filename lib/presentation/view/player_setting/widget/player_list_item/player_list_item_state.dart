@@ -1,15 +1,15 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:random_command_game/domain/entity/player.dart';
 
-class PlayerListItemState {
-  final String id;
-  final String name;
-  bool isSelected;
+part 'player_list_item_state.freezed.dart';
 
-  PlayerListItemState._({
-    required this.id,
-    required this.name,
-    required this.isSelected,
-  });
+@freezed
+class PlayerListItemState with _$PlayerListItemState {
+  const factory PlayerListItemState._({
+    required String id,
+    required String name,
+    required bool isSelected,
+  }) = _PlayerListItemState;
 
   factory PlayerListItemState.from(Player player) {
     return PlayerListItemState._(
