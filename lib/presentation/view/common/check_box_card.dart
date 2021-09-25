@@ -6,17 +6,19 @@ class CheckBoxCard extends StatelessWidget {
     required this.title,
     required this.onTap,
     required this.onDelete,
+    required this.isSelected,
   }) : super(key: key);
 
   final String title;
   final Function(bool?)? onTap;
   final Function() onDelete;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: CheckboxListTile(
-        value: true,
+        value: isSelected,
         onChanged: onTap, // TODO: チェックボックス処理
         title: Text(title),
         controlAffinity: ListTileControlAffinity.leading,
