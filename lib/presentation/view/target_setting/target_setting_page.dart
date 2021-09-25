@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-/// ペナルティー一覧画面
-class PenaltyListPage extends StatelessWidget {
-  const PenaltyListPage({Key? key}) : super(key: key);
+/// ターゲット一覧画面
+class TargetSettingPage extends StatelessWidget {
+  const TargetSettingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
