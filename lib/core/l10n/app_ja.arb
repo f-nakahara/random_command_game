@@ -13,5 +13,18 @@
     "placeholders": {
       "subject": {}
     }
-  }
+  },
+  "createTitle": "{subject}作成",
+  "@createTitle": {
+    "placeholders": {
+      "subject": {}
+    }
+  },
+  "playerSettingTitle": "プレイヤー設定",
+  "penaltySettingTitle": "ペナルティー設定",
+  "deletionNotice":"本当に削除しますか？",
+  "delete": "削除",
+  "cancel": "キャンセル",
+  "close": "閉じる",
+  "create": "作成"
 }

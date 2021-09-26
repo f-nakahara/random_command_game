@@ -111,6 +111,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Press the 「+」 button to add a new {subject}.'**
   String addExplanation(Object subject);
+
+  /// No description provided for @createTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create {subject}'**
+  String createTitle(Object subject);
+
+  /// No description provided for @playerSettingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Player Setting'**
+  String get playerSettingTitle;
+
+  /// No description provided for @penaltySettingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Penalty Setting'**
+  String get penaltySettingTitle;
+
+  /// No description provided for @deletionNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you really want to delete this?'**
+  String get deletionNotice;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @create.
+  ///
+  /// In en, this message translates to:
+  /// **'Create'**
+  String get create;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

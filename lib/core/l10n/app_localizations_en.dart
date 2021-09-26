@@ -19,4 +19,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String addExplanation(Object subject) {
     return 'Press the 「+」 button to add a new $subject.';
   }
+
+  @override
+  String createTitle(Object subject) {
+    return 'Create $subject';
+  }
+
+  @override
+  String get playerSettingTitle => 'Player Setting';
+
+  @override
+  String get penaltySettingTitle => 'Penalty Setting';
+
+  @override
+  String get deletionNotice => 'Do you really want to delete this?';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get create => 'Create';
 }

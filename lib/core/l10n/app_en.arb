@@ -13,5 +13,18 @@
     "placeholders": {
       "subject": {}
     }
-  }
+  },
+  "createTitle": "Create {subject}",
+  "@createTitle": {
+    "placeholders": {
+      "subject": {}
+    }
+  },
+  "playerSettingTitle": "Player Setting",
+  "penaltySettingTitle": "Penalty Setting",
+  "deletionNotice":"Do you really want to delete this?",
+  "delete": "Delete",
+  "cancel": "Cancel",
+  "close": "Close",
+  "create": "Create"
 }
