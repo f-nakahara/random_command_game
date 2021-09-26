@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:random_command_game/core/constant/app_constant.dart';
 import 'package:random_command_game/presentation/view/player_setting/widget/player_list/player_list_view_model.dart';
 import 'package:random_command_game/presentation/view/player_setting/widget/player_list_item/player_list_item.dart';
 
@@ -16,6 +17,8 @@ class PlayerList extends ConsumerWidget {
         }
 
         return ListView.builder(
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppConstant.normalPaddingValue),
           itemCount: data.length,
           itemBuilder: (context, index) {
             final player = data[index];
