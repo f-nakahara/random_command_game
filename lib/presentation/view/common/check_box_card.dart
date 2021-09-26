@@ -17,9 +17,10 @@ class CheckBoxCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      clipBehavior: Clip.antiAlias,
       child: CheckboxListTile(
         value: isSelected,
-        onChanged: onTap, // TODO: チェックボックス処理
+        onChanged: onTap,
         title: Text(title),
         controlAffinity: ListTileControlAffinity.leading,
         secondary: IconButton(
