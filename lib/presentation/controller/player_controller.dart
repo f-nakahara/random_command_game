@@ -48,7 +48,7 @@ class PlayerController extends StateNotifier<AsyncValue<List<Player>>> {
   Future<void> createPlayer({required String name}) async {
     final date = DateTime.now();
     final player = Player(
-      id: 'name',
+      id: name,
       name: name,
       isSelected: true,
       createdAt: date,
