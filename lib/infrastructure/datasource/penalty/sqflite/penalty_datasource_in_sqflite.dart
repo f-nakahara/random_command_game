@@ -1,29 +1,29 @@
 import 'package:path/path.dart';
 import 'package:random_command_game/core/config/app_config.dart';
 import 'package:random_command_game/core/failure/not_found_failure.dart';
-import 'package:random_command_game/domain/entity/player.dart';
-import 'package:random_command_game/infrastructure/datasource/player/i_player_datasource.dart';
-import 'package:random_command_game/infrastructure/datasource/player/sqflite/model/sqf_player.dart';
+import 'package:random_command_game/domain/entity/penalty.dart';
+import 'package:random_command_game/infrastructure/datasource/penalty/i_penalty_datasource.dart';
+import 'package:random_command_game/infrastructure/datasource/penalty/sqflite/model/sqf_penalty.dart';
 import 'package:sqflite/sqflite.dart';
 
-class PlayerDatasourceInSqflite implements IPlayerDatasource {
+class PenaltyDatasourceInSqflite implements IPenaltyDatasource {
   /// テーブル名
-  static const _tableName = 'player';
+  static const _tableName = 'penalty';
 
   @override
-  Future<SQFPlayer> find(String id) async {
+  Future<SQFPenalty> find(String id) async {
     try {
       final db = await _getDatabase();
       final result = await db.query(
         _tableName,
-        where: '${SQFPlayer.keyId}=?',
+        where: '${SQFPenalty.keyId}=?',
         whereArgs: [id],
       );
       if (result.isEmpty) {
         throw NotFoundFailure();
       }
       final map = result.first;
-      final data = SQFPlayer.fromMap(map);
+      final data = SQFPenalty.fromMap(map);
       return data;
     } catch (e) {
       rethrow;
@@ -31,16 +31,16 @@ class PlayerDatasourceInSqflite implements IPlayerDatasource {
   }
 
   @override
-  Future<SQFPlayer?> findByName(String name) async {
+  Future<SQFPenalty?> findByName(String name) async {
     try {
       final db = await _getDatabase();
       final result = await db.query(
         _tableName,
-        where: '${SQFPlayer.keyName}=?',
+        where: '${SQFPenalty.keyName}=?',
         whereArgs: [name],
       );
       if (result.isNotEmpty) {
-        final player = SQFPlayer.fromMap(result.first);
+        final player = SQFPenalty.fromMap(result.first);
         return player;
       }
     } catch (e) {
@@ -49,22 +49,22 @@ class PlayerDatasourceInSqflite implements IPlayerDatasource {
   }
 
   @override
-  Future<List<SQFPlayer>> findAll() async {
+  Future<List<SQFPenalty>> findAll() async {
     try {
       final db = await _getDatabase();
       final result =
-          await db.query(_tableName, orderBy: SQFPlayer.keyCreatedAt);
-      return result.map((e) => SQFPlayer.fromMap(e)).toList();
+          await db.query(_tableName, orderBy: SQFPenalty.keyCreatedAt);
+      return result.map((e) => SQFPenalty.fromMap(e)).toList();
     } catch (e) {
       rethrow;
     }
   }
 
   @override
-  Future<void> save(Player player) async {
+  Future<void> save(Penalty penalty) async {
     try {
       final db = await _getDatabase();
-      final map = SQFPlayer.convertToMap(player);
+      final map = SQFPenalty.convertToMap(penalty);
       await db.insert(_tableName, map);
     } catch (e) {
       rethrow;
@@ -72,15 +72,15 @@ class PlayerDatasourceInSqflite implements IPlayerDatasource {
   }
 
   @override
-  Future<void> update(Player player) async {
+  Future<void> update(Penalty penalty) async {
     try {
       final db = await _getDatabase();
-      final map = SQFPlayer.convertToMap(player);
+      final map = SQFPenalty.convertToMap(penalty);
       await db.update(
         _tableName,
         map,
-        where: '${SQFPlayer.keyId}=?',
-        whereArgs: [player.id],
+        where: '${SQFPenalty.keyId}=?',
+        whereArgs: [penalty.id],
       );
     } catch (e) {
       rethrow;
@@ -93,7 +93,7 @@ class PlayerDatasourceInSqflite implements IPlayerDatasource {
       final db = await _getDatabase();
       await db.delete(
         _tableName,
-        where: '${SQFPlayer.keyId}=?',
+        where: '${SQFPenalty.keyId}=?',
         whereArgs: [id],
       );
     } catch (e) {
@@ -105,17 +105,17 @@ class PlayerDatasourceInSqflite implements IPlayerDatasource {
   Future<Database> _getDatabase() async {
     try {
       final Database db = await openDatabase(
-        join(await getDatabasesPath(), AppConfig.playerDBFileName),
+        join(await getDatabasesPath(), AppConfig.penaltyDBFileName),
         version: 1,
         onCreate: (db, version) async {
           await db.execute(
             '''
           CREATE TABLE $_tableName (
-          ${SQFPlayer.keyId} TEXT PRIMARY KEY, 
-          ${SQFPlayer.keyName} TEXT UNIQUE, 
-          ${SQFPlayer.keyIsSelected} INTEGER, 
-          ${SQFPlayer.keyCreatedAt} INTEGER, 
-          ${SQFPlayer.keyUpdatedAt} INTEGER 
+          ${SQFPenalty.keyId} TEXT PRIMARY KEY, 
+          ${SQFPenalty.keyName} TEXT UNIQUE, 
+          ${SQFPenalty.keyIsSelected} INTEGER, 
+          ${SQFPenalty.keyCreatedAt} INTEGER, 
+          ${SQFPenalty.keyUpdatedAt} INTEGER 
           )
           ''',
           );

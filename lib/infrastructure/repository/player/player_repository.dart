@@ -12,7 +12,7 @@ class PlayerRepository implements IPlayerRepository {
   Future<Player> find(String id) async {
     try {
       final data = await _localDatasource.find(id);
-      final player = data.toPlayer();
+      final player = data.toEntity();
       return player;
     } catch (e) {
       rethrow;
@@ -23,7 +23,7 @@ class PlayerRepository implements IPlayerRepository {
   Future<Player?> findByName(String name) async {
     final result = await _localDatasource.findByName(name);
     if (result != null) {
-      final player = result.toPlayer();
+      final player = result.toEntity();
       return player;
     }
   }
@@ -32,7 +32,7 @@ class PlayerRepository implements IPlayerRepository {
   Future<List<Player>> findAll() async {
     try {
       final data = await _localDatasource.findAll();
-      return data.map((e) => e.toPlayer()).toList();
+      return data.map((e) => e.toEntity()).toList();
     } catch (e) {
       rethrow;
     }
