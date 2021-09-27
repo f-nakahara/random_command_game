@@ -9,20 +9,21 @@ class PlayerList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncValue = ref.watch(playerListViewModel).players;
+    final asyncValue = ref.watch(playerListViewModel).state;
     return asyncValue.when(
       data: (data) {
-        if (data.isEmpty) {
+        final states = data.playerStates;
+        if (states.isEmpty) {
           return const SizedBox();
         }
 
         return ListView.builder(
           padding: const EdgeInsets.symmetric(
               horizontal: AppConstant.normalPaddingValue),
-          itemCount: data.length,
+          itemCount: states.length,
           itemBuilder: (context, index) {
-            final player = data[index];
-            return PlayerListItem(player);
+            final state = states[index];
+            return PlayerListItem(state);
           },
         );
       },
