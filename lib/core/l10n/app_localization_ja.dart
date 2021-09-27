@@ -55,8 +55,21 @@ class AppLocalizationJa extends AppLocalization {
   String get duplicateErrorText => '既に作成済みです';
 
   @override
-  String get start => 'START';
+  String get start => 'はじめる';
 
   @override
   String get gameSettingTitle => ' ゲーム設定';
+
+  @override
+  String get startIntroductionTitle => 'はじめてプレイする方へ';
+
+  @override
+  String startIntroductionStep1(Object player, Object penalty, Object gameSettingTitle) {
+    return '「$gameSettingTitle」から$playerと$penaltyを決める。';
+  }
+
+  @override
+  String startIntroductionStep2(Object start) {
+    return '「$start」をタップでゲームスタート！';
+  }
 }

@@ -183,6 +183,24 @@ abstract class AppLocalization {
   /// In en, this message translates to:
   /// **' Game Setting'**
   String get gameSettingTitle;
+
+  /// No description provided for @startIntroductionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'For those who play for the first time'**
+  String get startIntroductionTitle;
+
+  /// No description provided for @startIntroductionStep1.
+  ///
+  /// In en, this message translates to:
+  /// **'Determine the {player} and {penalty} game from the 「{gameSettingTitle}」.'**
+  String startIntroductionStep1(Object player, Object penalty, Object gameSettingTitle);
+
+  /// No description provided for @startIntroductionStep2.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap Start to 「{start}」 the game!'**
+  String startIntroductionStep2(Object start);
 }
 
 class _AppLocalizationDelegate extends LocalizationsDelegate<AppLocalization> {

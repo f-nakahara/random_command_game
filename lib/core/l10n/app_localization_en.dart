@@ -59,4 +59,17 @@ class AppLocalizationEn extends AppLocalization {
 
   @override
   String get gameSettingTitle => ' Game Setting';
+
+  @override
+  String get startIntroductionTitle => 'For those who play for the first time';
+
+  @override
+  String startIntroductionStep1(Object player, Object penalty, Object gameSettingTitle) {
+    return 'Determine the $player and $penalty game from the 「$gameSettingTitle」.';
+  }
+
+  @override
+  String startIntroductionStep2(Object start) {
+    return 'Tap Start to 「$start」 the game!';
+  }
 }

@@ -34,6 +34,21 @@
     }
   },
   "duplicateErrorText": "既に作成済みです",
-  "start": "START",
-  "gameSettingTitle": " ゲーム設定"
+  "start": "はじめる",
+  "gameSettingTitle": " ゲーム設定",
+  "startIntroductionTitle": "はじめてプレイする方へ",
+  "startIntroductionStep1": "「{gameSettingTitle}」から{player}と{penalty}を決める。",
+  "@startIntroductionStep1": {
+    "placeholders": {
+      "player": {},
+      "penalty": {},
+      "gameSettingTitle": {}
+    }
+  },
+  "startIntroductionStep2": "「{start}」をタップでゲームスタート！",
+  "@startIntroductionStep2": {
+    "placeholders": {
+      "start": {}
+    }
+  }
 }
