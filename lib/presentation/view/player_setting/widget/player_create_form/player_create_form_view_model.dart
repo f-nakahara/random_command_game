@@ -9,11 +9,11 @@ final playerCreateFormViewModel =
 );
 
 class PlayerCreateFormViewModel {
-  PlayerCreateFormViewModel(this.controller);
+  PlayerCreateFormViewModel(this._controller);
 
-  final PlayerController controller;
+  final PlayerController _controller;
 
   Future<void> create({required String name}) async {
-    await controller.createPlayer(name: name);
+    await _controller.createPlayer(name: name);
   }
 }
