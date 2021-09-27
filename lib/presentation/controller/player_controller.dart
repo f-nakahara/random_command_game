@@ -1,39 +1,27 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:random_command_game/application/player/player_application.dart';
+import 'package:random_command_game/application/player/player_application_provider.dart';
 import 'package:random_command_game/domain/entity/player.dart';
 
 final playerController =
     StateNotifierProvider<PlayerController, AsyncValue<List<Player>>>(
-  (ref) => PlayerController(),
+  (ref) => PlayerController(
+    app: ref.read(playerApplicationProvider),
+  ),
 );
 
 class PlayerController extends StateNotifier<AsyncValue<List<Player>>> {
-  PlayerController() : super(const AsyncLoading()) {
+  PlayerController({required PlayerApplication app})
+      : _app = app,
+        super(const AsyncLoading()) {
     _fetch();
   }
 
+  final PlayerApplication _app;
+
   /// 同期
   Future<void> _fetch() async {
-    final date = DateTime.now();
-    final players = [
-      Player(
-          id: '1',
-          name: 'Player1',
-          isSelected: true,
-          createdAt: date,
-          updatedAt: date),
-      Player(
-          id: '2',
-          name: 'Player2',
-          isSelected: true,
-          createdAt: date,
-          updatedAt: date),
-      Player(
-          id: '3',
-          name: 'Player3',
-          isSelected: true,
-          createdAt: date,
-          updatedAt: date),
-    ];
+    final players = await _app.getAllPlayerList();
     state = AsyncData(players);
   }
 
@@ -46,14 +34,7 @@ class PlayerController extends StateNotifier<AsyncValue<List<Player>>> {
 
   /// プレイヤー作成
   Future<void> createPlayer({required String name}) async {
-    final date = DateTime.now();
-    final player = Player(
-      id: name,
-      name: name,
-      isSelected: true,
-      createdAt: date,
-      updatedAt: date,
-    );
+    final player = await _app.createPlayer(name: name);
     final players = state.data!.value;
     players.add(player);
     state = AsyncData(players);
