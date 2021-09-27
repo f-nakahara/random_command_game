@@ -6,8 +6,9 @@ class SlotPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('$runtimeType'),
+    return Scaffold(
+      appBar: AppBar(),
+      body: Container(),
     );
   }
 }

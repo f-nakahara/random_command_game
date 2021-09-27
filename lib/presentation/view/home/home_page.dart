@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:random_command_game/core/l10n/app_localization.dart';
 import 'package:random_command_game/core/util/navigator_util.dart';
 import 'package:random_command_game/presentation/view/game_setting/game_setting_page.dart';
+import 'package:random_command_game/presentation/view/slot/slot_page.dart';
 import 'package:sizer/sizer.dart';
 
 /// ホーム画面
@@ -72,7 +73,9 @@ class _StartButton extends StatelessWidget {
       width: double.infinity,
       height: 8.h,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          NavigatorUtil.push(context, page: const SlotPage());
+        },
         style: ElevatedButton.styleFrom(),
         child: Text(
           localization.start,
