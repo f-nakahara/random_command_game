@@ -14,9 +14,6 @@ class PenaltySettingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final localization = AppLocalization.of(context)!;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(localization.penaltySettingTitle),
-      ),
       body: SafeArea(
         child: Column(
           children: [
