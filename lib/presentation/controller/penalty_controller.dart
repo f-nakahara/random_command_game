@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:random_command_game/application/penalty/penalty_application.dart';
-import 'package:random_command_game/application/penalty/penalty_application_controller.dart';
+import 'package:random_command_game/application/penalty/penalty_application_provider.dart';
 import 'package:random_command_game/domain/entity/penalty.dart';
 
 final penaltyController =
