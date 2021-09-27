@@ -6,7 +6,7 @@ abstract class IPlayerDatasource {
   Future<SQLPlayer> find(String id);
 
   /// プレイヤーの取得（名前検索）
-  Future<SQLPlayer> findByName(String name);
+  Future<SQLPlayer?> findByName(String name);
 
   /// プレイヤー一覧の取得
   Future<List<SQLPlayer>> findAll();

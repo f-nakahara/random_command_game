@@ -3,7 +3,7 @@ import 'package:random_command_game/domain/entity/player.dart';
 /// [Player] Repository Interface
 abstract class IPlayerRepository {
   /// プレイヤーを取得
-  Future<Player?> find(String id);
+  Future<Player> find(String id);
 
   /// プレイヤーを取得（名前検索）
   Future<Player?> findByName(String name);
