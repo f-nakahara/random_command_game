@@ -9,7 +9,7 @@ class PlayerRepository implements IPlayerRepository {
 
   final IPlayerDatasource _localDatasource;
   @override
-  Future<Player> find(String id) async {
+  Future<Player?> find(String id) async {
     try {
       final data = await _localDatasource.find(id);
       final player = data.toPlayer();
@@ -17,6 +17,12 @@ class PlayerRepository implements IPlayerRepository {
     } catch (e) {
       rethrow;
     }
+  }
+
+  @override
+  Future<Player?> findByName(String name) async {
+    // TODO: implement findByName
+    throw UnimplementedError();
   }
 
   @override

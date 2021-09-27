@@ -1,6 +1,5 @@
 import 'package:path/path.dart';
 import 'package:random_command_game/core/config/app_config.dart';
-import 'package:random_command_game/core/failure/duplicate_failure.dart';
 import 'package:random_command_game/core/failure/not_found_failure.dart';
 import 'package:random_command_game/domain/entity/player.dart';
 import 'package:random_command_game/infrastructure/datasource/player/i_player_datasource.dart';
@@ -32,6 +31,25 @@ class PlayerDatasourceInSqflite implements IPlayerDatasource {
   }
 
   @override
+  Future<SQLPlayer> findByName(String name) async {
+    try {
+      final db = await _getDatabase();
+      final result = await db.query(
+        _tableName,
+        where: '${SQLPlayer.keyName}=?',
+        whereArgs: [name],
+      );
+      if (result.isEmpty) {
+        throw NotFoundFailure();
+      }
+      final player = SQLPlayer.fromMap(result.first);
+      return player;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
   Future<List<SQLPlayer>> findAll() async {
     try {
       final db = await _getDatabase();
@@ -50,14 +68,6 @@ class PlayerDatasourceInSqflite implements IPlayerDatasource {
   Future<void> save(Player player) async {
     try {
       final db = await _getDatabase();
-      final result = await db.query(
-        _tableName,
-        where: '${SQLPlayer.keyId}=? OR ${SQLPlayer.keyName}=?',
-        whereArgs: [player.id, player.name],
-      );
-      if (result.isNotEmpty) {
-        throw DuplicateFailure();
-      }
       final map = SQLPlayer.convertToMap(player);
       await db.insert(_tableName, map);
     } catch (e) {
@@ -106,10 +116,10 @@ class PlayerDatasourceInSqflite implements IPlayerDatasource {
             '''
           CREATE TABLE $_tableName (
           ${SQLPlayer.keyId} TEXT PRIMARY KEY, 
-          ${SQLPlayer.keyName} TEXT PRIMARY KEY, 
+          ${SQLPlayer.keyName} TEXT UNIQUE, 
           ${SQLPlayer.keyIsSelected} INTEGER, 
           ${SQLPlayer.keyCreatedAt} INTEGER, 
-          ${SQLPlayer.keyUpdatedAt} INTEGER, 
+          ${SQLPlayer.keyUpdatedAt} INTEGER 
           )
           ''',
           );
