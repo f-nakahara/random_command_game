@@ -5,6 +5,9 @@ abstract class ITargetRepository {
   /// ターゲットを取得
   Future<Target> find(String id);
 
+  /// ターゲットを取得（名前検索）
+  Future<Target?> findByName(String name);
+
   /// ターゲットを全件取得
   Future<List<Target>> findAll();
 
