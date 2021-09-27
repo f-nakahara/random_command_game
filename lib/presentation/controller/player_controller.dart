@@ -27,9 +27,14 @@ class PlayerController extends StateNotifier<AsyncValue<List<Player>>> {
 
   /// プレイヤー削除
   Future<void> deletePlayer(String id) async {
-    final players = state.data!.value;
-    players.removeWhere((element) => element.id == id);
-    state = AsyncData(players);
+    try {
+      await _app.deletePlayer(id);
+      final players = state.data!.value;
+      players.removeWhere((element) => element.id == id);
+      state = AsyncData(players);
+    } catch (e) {
+      rethrow;
+    }
   }
 
   /// プレイヤー作成
@@ -42,19 +47,11 @@ class PlayerController extends StateNotifier<AsyncValue<List<Player>>> {
 
   /// プレイヤー更新
   Future<void> updatePlayer(String id, {bool? isSelected}) async {
-    final date = DateTime.now();
-    final player = state.data!.value.singleWhere((element) => element.id == id);
-    final newPlayer = Player(
-      id: id,
-      name: player.name,
-      isSelected: isSelected ?? player.isSelected,
-      createdAt: player.createdAt,
-      updatedAt: date,
-    );
+    final player = await _app.updatePlayer(id, isSelected: isSelected);
     final players = state.data!.value;
     final index = players.indexWhere((element) => element == player);
     if (index != -1) {
-      players[index] = newPlayer;
+      players[index] = player;
       state = AsyncData(players);
     }
   }
