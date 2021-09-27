@@ -8,7 +8,7 @@ class SlotList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SlotListItem(),
+        SlotListItem(Slot),
         SlotListItem(),
         SlotListItem(),
       ],
