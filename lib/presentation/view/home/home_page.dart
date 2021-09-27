@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:random_command_game/core/util/navigator_util.dart';
-import 'package:random_command_game/presentation/view/penalty_setting/penalty_setting_page.dart';
-import 'package:random_command_game/presentation/view/player_setting/player_setting_page.dart';
+import 'package:random_command_game/presentation/view/game_setting/game_setting_page.dart';
 import 'package:sizer/sizer.dart';
 
 /// ホーム画面
@@ -17,6 +16,8 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text('使い方'),
+              Text(''),
               SizedBox(
                 width: double.infinity,
                 height: 8.h,
@@ -27,36 +28,30 @@ class HomePage extends StatelessWidget {
                     'はじめる',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 18.sp,
+                      fontSize: 15.sp,
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              GridView.count(
-                shrinkWrap: true,
-                crossAxisCount: 2,
-                crossAxisSpacing: 20,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      NavigatorUtil.push(
-                        context,
-                        page: const PlayerSettingPage(),
-                      );
-                    },
-                    child: Text('プレイヤー'),
+              SizedBox(height: 10),
+              SizedBox(
+                width: double.infinity,
+                height: 8.h,
+                child: OutlinedButton(
+                  onPressed: () {
+                    NavigatorUtil.push(
+                      context,
+                      page: const GameSettingPage(),
+                    );
+                  },
+                  child: Text(
+                    'ゲーム設定',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15.sp,
+                    ),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      NavigatorUtil.push(
-                        context,
-                        page: const PenaltySettingPage(),
-                      );
-                    },
-                    child: Text('罰ゲーム'),
-                  ),
-                ],
+                ),
               ),
             ],
           ),
