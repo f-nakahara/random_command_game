@@ -1,15 +1,16 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
 import 'package:random_command_game/domain/entity/player.dart';
 
-part 'player_list_item_state.freezed.dart';
+class PlayerListItemState extends Equatable {
+  final String id;
+  final String name;
+  final bool isSelected;
 
-@freezed
-class PlayerListItemState with _$PlayerListItemState {
-  const factory PlayerListItemState._({
-    required String id,
-    required String name,
-    required bool isSelected,
-  }) = _PlayerListItemState;
+  const PlayerListItemState._({
+    required this.id,
+    required this.name,
+    required this.isSelected,
+  });
 
   factory PlayerListItemState.from(Player player) {
     return PlayerListItemState._(
@@ -18,4 +19,7 @@ class PlayerListItemState with _$PlayerListItemState {
       isSelected: player.isSelected,
     );
   }
+
+  @override
+  List<Object?> get props => [id];
 }
