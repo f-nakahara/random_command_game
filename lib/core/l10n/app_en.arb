@@ -21,8 +21,6 @@
       "subject": {}
     }
   },
-  "playerSettingTitle": "Player Setting",
-  "penaltySettingTitle": "Penalty Setting",
   "deletionNotice":"Do you really want to delete this?",
   "delete": "Delete",
   "cancel": "Cancel",
@@ -35,5 +33,7 @@
       "length": {}
     }
   },
-  "duplicateErrorText": "It has already been created"
+  "duplicateErrorText": "It has already been created",
+  "start": "START",
+  "gameSettingTitle": " Game Setting"
 }

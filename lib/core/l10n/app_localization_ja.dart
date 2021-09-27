@@ -29,12 +29,6 @@ class AppLocalizationJa extends AppLocalization {
   }
 
   @override
-  String get playerSettingTitle => 'プレイヤー設定';
-
-  @override
-  String get penaltySettingTitle => 'ペナルティー設定';
-
-  @override
   String get deletionNotice => '本当に削除しますか？';
 
   @override
@@ -59,4 +53,10 @@ class AppLocalizationJa extends AppLocalization {
 
   @override
   String get duplicateErrorText => '既に作成済みです';
+
+  @override
+  String get start => 'START';
+
+  @override
+  String get gameSettingTitle => ' ゲーム設定';
 }

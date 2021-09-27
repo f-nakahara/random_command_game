@@ -21,8 +21,6 @@
       "subject": {}
     }
   },
-  "playerSettingTitle": "プレイヤー設定",
-  "penaltySettingTitle": "ペナルティー設定",
   "deletionNotice":"本当に削除しますか？",
   "delete": "削除",
   "cancel": "キャンセル",
@@ -35,5 +33,7 @@
       "length": {}
     }
   },
-  "duplicateErrorText": "既に作成済みです"
+  "duplicateErrorText": "既に作成済みです",
+  "start": "START",
+  "gameSettingTitle": " ゲーム設定"
 }

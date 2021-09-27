@@ -124,18 +124,6 @@ abstract class AppLocalization {
   /// **'Create {subject}'**
   String createTitle(Object subject);
 
-  /// No description provided for @playerSettingTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Player Setting'**
-  String get playerSettingTitle;
-
-  /// No description provided for @penaltySettingTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Penalty Setting'**
-  String get penaltySettingTitle;
-
   /// No description provided for @deletionNotice.
   ///
   /// In en, this message translates to:
@@ -183,6 +171,18 @@ abstract class AppLocalization {
   /// In en, this message translates to:
   /// **'It has already been created'**
   String get duplicateErrorText;
+
+  /// No description provided for @start.
+  ///
+  /// In en, this message translates to:
+  /// **'START'**
+  String get start;
+
+  /// No description provided for @gameSettingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **' Game Setting'**
+  String get gameSettingTitle;
 }
 
 class _AppLocalizationDelegate extends LocalizationsDelegate<AppLocalization> {
