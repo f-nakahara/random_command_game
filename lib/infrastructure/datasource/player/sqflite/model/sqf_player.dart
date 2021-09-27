@@ -1,6 +1,6 @@
 import 'package:random_command_game/domain/entity/player.dart';
 
-class SQLPlayer {
+class SQFPlayer {
   static const keyId = 'id';
   static const keyName = 'name';
   static const keyIsSelected = 'is_selected';
@@ -13,7 +13,7 @@ class SQLPlayer {
   final int createdAt;
   final int updatedAt;
 
-  const SQLPlayer({
+  const SQFPlayer({
     required this.id,
     required this.name,
     required this.isSelected,
@@ -21,8 +21,8 @@ class SQLPlayer {
     required this.updatedAt,
   });
 
-  factory SQLPlayer.fromMap(Map<String, dynamic> map) {
-    return SQLPlayer(
+  factory SQFPlayer.fromMap(Map<String, dynamic> map) {
+    return SQFPlayer(
       id: map[keyId],
       name: map[keyName],
       isSelected: map[keyIsSelected],
@@ -31,7 +31,7 @@ class SQLPlayer {
     );
   }
 
-  Player toPlayer() {
+  Player toEntity() {
     return Player(
       id: id,
       name: name,
