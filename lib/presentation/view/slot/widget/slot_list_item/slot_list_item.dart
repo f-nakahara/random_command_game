@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:random_command_game/presentation/view/slot/widget/slot_list_item/slot_list_item_state.dart';
+import 'package:random_command_game/presentation/view/slot/widget/slot_list_item/slot_list_item_view_model.dart';
 
-class SlotListItem extends StatelessWidget {
-  const SlotListItem({Key? key}) : super(key: key);
+class SlotListItem extends ConsumerWidget {
+  const SlotListItem(this.type, {Key? key}) : super(key: key);
+
+  final SlotListItemType type;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(slotListItemViewModel(type));
     return Row(
       children: [
-        Expanded(child: Text('こうだい')),
+        Expanded(child: Text(state.value)),
         ElevatedButton(
           onPressed: () {},
           style: ElevatedButton.styleFrom(
