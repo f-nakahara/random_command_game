@@ -8,11 +8,19 @@ class TextFormDialog extends StatelessWidget {
     required this.onSaved,
     required this.title,
     required this.controller,
+    this.validator,
+    this.maxLength,
+    this.autoValidateMode = AutovalidateMode.onUserInteraction,
+    this.onChanged,
   }) : super(key: key);
 
-  final Function() onSaved;
+  final Function()? onSaved;
   final String title;
   final TextEditingController controller;
+  final String? Function(String?)? validator;
+  final int? maxLength;
+  final AutovalidateMode autoValidateMode;
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +32,10 @@ class TextFormDialog extends StatelessWidget {
         children: [
           TextFormField(
             controller: controller,
+            validator: validator,
+            maxLength: maxLength,
+            autovalidateMode: autoValidateMode,
+            onChanged: onChanged,
           ),
         ],
       ),

@@ -12,6 +12,16 @@ class AddExplanation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context)!;
-    return Text(localization.addExplanation(subject));
+    return SizedBox(
+      width: double.infinity,
+      child: Text(
+        localization.addExplanation(subject),
+        style: const TextStyle(
+          fontSize: 12,
+          color: Colors.grey,
+        ),
+        textAlign: TextAlign.start,
+      ),
+    );
   }
 }

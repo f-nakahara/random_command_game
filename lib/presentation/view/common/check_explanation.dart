@@ -12,6 +12,15 @@ class CheckExplanation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context)!;
-    return Text(localization.checkExplanation(subject));
+    return SizedBox(
+      width: double.infinity,
+      child: Text(
+        localization.checkExplanation(subject),
+        style: const TextStyle(
+          fontSize: 15,
+        ),
+        textAlign: TextAlign.start,
+      ),
+    );
   }
 }

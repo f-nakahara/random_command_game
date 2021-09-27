@@ -11,16 +11,22 @@ class PlayerCreateForm extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final vm = ref.read(playerCreateFormViewModel);
+    final vm = ref.read(playerCreateFormViewModel.notifier);
     final controller = useTextEditingController();
     final localization = AppLocalizations.of(context)!;
+    final isEnable = ref.watch(playerCreateFormViewModel).isEnabled;
     return TextFormDialog(
-      onSaved: () async {
-        await vm.create(name: controller.text);
-        NavigatorUtil.pop(context);
-      },
+      onSaved: isEnable
+          ? () async {
+              await vm.create(name: controller.text);
+              NavigatorUtil.pop(context);
+            }
+          : null,
       title: localization.createTitle(localization.player),
       controller: controller,
+      validator: (value) => vm.validate(value, localization),
+      maxLength: vm.maxNameLength,
+      onChanged: (value) => vm.onChanged(value, localization),
     );
   }
 }

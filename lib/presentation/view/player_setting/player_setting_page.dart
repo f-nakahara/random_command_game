@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:random_command_game/core/constant/app_constant.dart';
 import 'package:random_command_game/core/l10n/app_localizations.dart';
 import 'package:random_command_game/presentation/view/common/add_explanation.dart';
 import 'package:random_command_game/presentation/view/common/check_explanation.dart';
@@ -19,8 +20,16 @@ class PlayerSettingPage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            CheckExplanation(subject: localization.player),
-            AddExplanation(subject: localization.player),
+            Padding(
+              padding: const EdgeInsets.all(AppConstant.normalPaddingValue),
+              child: Column(
+                children: [
+                  CheckExplanation(subject: localization.player),
+                  const SizedBox(height: 5),
+                  AddExplanation(subject: localization.player),
+                ],
+              ),
+            ),
             const Expanded(child: PlayerList()),
           ],
         ),
