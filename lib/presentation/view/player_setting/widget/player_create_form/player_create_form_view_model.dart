@@ -33,16 +33,12 @@ class PlayerCreateFormViewModel extends StateNotifier<PlayerCreateFormState> {
 
   /// バリデーション
   String? validate(String? value, AppLocalization localization) {
-    bool enable = true;
     if (value == null || value.isEmpty) {
-      enable = false;
-      return '名前を入力してください。';
+      return localization.emptyErrorText;
     } else if (value.length > maxNameLength) {
-      enable = false;
-      return '$maxNameLength文字以内で入力してください。';
+      return localization.maxLengthErrorText(maxNameLength);
     } else if (_playerNames.contains(value)) {
-      enable = false;
-      return '既に作成済みです。';
+      return localization.duplicateErrorText;
     }
   }
 
