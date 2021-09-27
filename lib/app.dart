@@ -1,6 +1,6 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
-import 'package:random_command_game/core/l10n/app_localizations.dart';
+import 'package:random_command_game/core/l10n/app_localization.dart';
 import 'package:random_command_game/presentation/view/player_setting/player_setting_page.dart';
 import 'package:sizer/sizer.dart';
 
@@ -22,8 +22,8 @@ class App extends StatelessWidget {
           scheme: scheme,
         ).toTheme,
         themeMode: themeMode,
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
+        localizationsDelegates: AppLocalization.localizationsDelegates,
+        supportedLocales: AppLocalization.supportedLocales,
         home: const PlayerSettingPage(),
       ),
     );

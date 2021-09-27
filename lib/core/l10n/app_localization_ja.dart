@@ -1,11 +1,11 @@
 
 
 
-import 'app_localizations.dart';
+import 'app_localization.dart';
 
 /// The translations for Japanese (`ja`).
-class AppLocalizationsJa extends AppLocalizations {
-  AppLocalizationsJa([String locale = 'ja']) : super(locale);
+class AppLocalizationJa extends AppLocalization {
+  AppLocalizationJa([String locale = 'ja']) : super(locale);
 
   @override
   String get player => 'プレイヤー';

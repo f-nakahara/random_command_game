@@ -1,11 +1,11 @@
 
 
 
-import 'app_localizations.dart';
+import 'app_localization.dart';
 
 /// The translations for English (`en`).
-class AppLocalizationsEn extends AppLocalizations {
-  AppLocalizationsEn([String locale = 'en']) : super(locale);
+class AppLocalizationEn extends AppLocalization {
+  AppLocalizationEn([String locale = 'en']) : super(locale);
 
   @override
   String get player => 'Player';

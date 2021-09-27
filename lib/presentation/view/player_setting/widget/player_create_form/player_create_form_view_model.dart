@@ -1,5 +1,5 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:random_command_game/core/l10n/app_localizations.dart';
+import 'package:random_command_game/core/l10n/app_localization.dart';
 import 'package:random_command_game/presentation/controller/player_controller.dart';
 import 'package:random_command_game/presentation/view/player_setting/widget/player_create_form/player_create_form_state.dart';
 
@@ -32,7 +32,7 @@ class PlayerCreateFormViewModel extends StateNotifier<PlayerCreateFormState> {
   }
 
   /// バリデーション
-  String? validate(String? value, AppLocalizations localization) {
+  String? validate(String? value, AppLocalization localization) {
     bool enable = true;
     if (value == null || value.isEmpty) {
       enable = false;
@@ -46,11 +46,11 @@ class PlayerCreateFormViewModel extends StateNotifier<PlayerCreateFormState> {
     }
   }
 
-  void onChanged(String? value, AppLocalizations localization) {
+  void onChanged(String? value, AppLocalization localization) {
     _updateEnableState(value, localization);
   }
 
-  void _updateEnableState(String? value, AppLocalizations localization) {
+  void _updateEnableState(String? value, AppLocalization localization) {
     final result = validate(value, localization);
     final isEnabled = result == null;
     state = state.copyWith(isEnabled: isEnabled);

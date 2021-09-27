@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:random_command_game/core/l10n/app_localizations.dart';
+import 'package:random_command_game/core/l10n/app_localization.dart';
 import 'package:random_command_game/core/util/navigator_util.dart';
 
 class DeleteDialog extends StatelessWidget {
@@ -14,7 +14,7 @@ class DeleteDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localization = AppLocalizations.of(context)!;
+    final localization = AppLocalization.of(context)!;
     return AlertDialog(
       title: Text(playerName),
       content: Column(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:random_command_game/core/l10n/app_localizations.dart';
+import 'package:random_command_game/core/l10n/app_localization.dart';
 
 class AddExplanation extends StatelessWidget {
   const AddExplanation({
@@ -11,7 +11,7 @@ class AddExplanation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localization = AppLocalizations.of(context)!;
+    final localization = AppLocalization.of(context)!;
     return SizedBox(
       width: double.infinity,
       child: Text(
