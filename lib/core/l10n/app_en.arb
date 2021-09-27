@@ -2,6 +2,7 @@
   "@@locale": "en",
 
   "player": "Player",
+  "penalty": "Penalty",
   "checkExplanation": "Please check the {subject} to use.",
   "@checkExplanation": {
     "placeholders": {
@@ -26,5 +27,13 @@
   "delete": "Delete",
   "cancel": "Cancel",
   "close": "Close",
-  "create": "Create"
+  "create": "Create",
+  "emptyErrorText": "Please fill in the value",
+  "maxLengthErrorText": "Please enter within {length} characters",
+  "@maxLengthErrorText": {
+    "placeholders": {
+      "length": {}
+    }
+  },
+  "duplicateErrorText": "It has already been created"
 }

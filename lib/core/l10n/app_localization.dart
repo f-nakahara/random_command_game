@@ -100,6 +100,12 @@ abstract class AppLocalization {
   /// **'Player'**
   String get player;
 
+  /// No description provided for @penalty.
+  ///
+  /// In en, this message translates to:
+  /// **'Penalty'**
+  String get penalty;
+
   /// No description provided for @checkExplanation.
   ///
   /// In en, this message translates to:
@@ -159,6 +165,24 @@ abstract class AppLocalization {
   /// In en, this message translates to:
   /// **'Create'**
   String get create;
+
+  /// No description provided for @emptyErrorText.
+  ///
+  /// In en, this message translates to:
+  /// **'Please fill in the value'**
+  String get emptyErrorText;
+
+  /// No description provided for @maxLengthErrorText.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter within {length} characters'**
+  String maxLengthErrorText(Object length);
+
+  /// No description provided for @duplicateErrorText.
+  ///
+  /// In en, this message translates to:
+  /// **'It has already been created'**
+  String get duplicateErrorText;
 }
 
 class _AppLocalizationDelegate extends LocalizationsDelegate<AppLocalization> {

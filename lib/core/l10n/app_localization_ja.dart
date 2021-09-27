@@ -11,6 +11,9 @@ class AppLocalizationJa extends AppLocalization {
   String get player => 'プレイヤー';
 
   @override
+  String get penalty => '罰ゲーム';
+
+  @override
   String checkExplanation(Object subject) {
     return '使用する$subjectにチェックを入れてください。';
   }
@@ -45,4 +48,15 @@ class AppLocalizationJa extends AppLocalization {
 
   @override
   String get create => '作成';
+
+  @override
+  String get emptyErrorText => '値を入力してください';
+
+  @override
+  String maxLengthErrorText(Object length) {
+    return '$length文字以内で入力してください';
+  }
+
+  @override
+  String get duplicateErrorText => '既に作成済みです';
 }

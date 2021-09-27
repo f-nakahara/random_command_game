@@ -2,6 +2,7 @@
   "@@locale": "ja",
 
   "player": "プレイヤー",
+  "penalty": "罰ゲーム",
   "checkExplanation": "使用する{subject}にチェックを入れてください。",
   "@checkExplanation": {
     "placeholders": {
@@ -26,5 +27,13 @@
   "delete": "削除",
   "cancel": "キャンセル",
   "close": "閉じる",
-  "create": "作成"
+  "create": "作成",
+  "emptyErrorText": "値を入力してください",
+  "maxLengthErrorText": "{length}文字以内で入力してください",
+  "@maxLengthErrorText": {
+    "placeholders": {
+      "length": {}
+    }
+  },
+  "duplicateErrorText": "既に作成済みです"
 }
