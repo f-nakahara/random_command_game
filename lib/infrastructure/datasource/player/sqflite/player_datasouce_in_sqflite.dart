@@ -106,7 +106,7 @@ class PlayerDatasourceInSqflite implements IPlayerDatasource {
     try {
       final Database db = await openDatabase(
         join(await getDatabasesPath(), AppConfig.playerDBFileName),
-        version: 1,
+        version: AppConfig.playerDBVersion,
         onCreate: (db, version) async {
           await db.execute(
             '''
