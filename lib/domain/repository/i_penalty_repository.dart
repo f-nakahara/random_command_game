@@ -5,6 +5,9 @@ abstract class IPenaltyRepository {
   /// ペナルティーを取得
   Future<Penalty> find(String id);
 
+  /// ペナルティーを取得（名前検索）
+  Future<Penalty?> findByName(String name);
+
   /// ペナルティーを全件取得
   Future<List<Penalty>> findAll();
 
