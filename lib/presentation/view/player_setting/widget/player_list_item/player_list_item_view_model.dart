@@ -13,9 +13,10 @@ final playerListItemViewModel =
 );
 
 class PlayerListItemViewModel {
-  PlayerListItemViewModel(
-      {required PlayerController controller, required this.state})
-      : _controller = controller;
+  PlayerListItemViewModel({
+    required PlayerController controller,
+    required this.state,
+  }) : _controller = controller;
 
   final PlayerController _controller;
   final PlayerListItemState state;
