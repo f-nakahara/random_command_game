@@ -31,7 +31,7 @@ class PlayerDatasourceInSqflite implements IPlayerDatasource {
   }
 
   @override
-  Future<SQLPlayer> findByName(String name) async {
+  Future<SQLPlayer?> findByName(String name) async {
     try {
       final db = await _getDatabase();
       final result = await db.query(
@@ -39,11 +39,10 @@ class PlayerDatasourceInSqflite implements IPlayerDatasource {
         where: '${SQLPlayer.keyName}=?',
         whereArgs: [name],
       );
-      if (result.isEmpty) {
-        throw NotFoundFailure();
+      if (result.isNotEmpty) {
+        final player = SQLPlayer.fromMap(result.first);
+        return player;
       }
-      final player = SQLPlayer.fromMap(result.first);
-      return player;
     } catch (e) {
       rethrow;
     }
