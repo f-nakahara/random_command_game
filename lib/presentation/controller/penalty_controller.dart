@@ -13,14 +13,12 @@ final penaltyController =
 class PenaltyController extends StateNotifier<AsyncValue<List<Penalty>>> {
   PenaltyController({required PenaltyApplication app})
       : _app = app,
-        super(const AsyncLoading()) {
-    _fetch();
-  }
+        super(const AsyncLoading());
 
   final PenaltyApplication _app;
 
   /// 同期
-  Future<void> _fetch() async {
+  Future<void> init() async {
     final penalties = await _app.getAllPenaltyList();
     state = AsyncData(penalties);
   }

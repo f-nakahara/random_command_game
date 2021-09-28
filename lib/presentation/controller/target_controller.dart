@@ -13,14 +13,12 @@ final targetController =
 class TargetController extends StateNotifier<AsyncValue<List<Target>>> {
   TargetController({required TargetApplication app})
       : _app = app,
-        super(const AsyncLoading()) {
-    _fetch();
-  }
+        super(const AsyncLoading());
 
   final TargetApplication _app;
 
   /// 同期
-  Future<void> _fetch() async {
+  Future<void> init() async {
     final players = await _app.getAllPlayerList();
     state = AsyncData(players);
   }

@@ -1,7 +1,7 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:random_command_game/core/l10n/app_localization.dart';
-import 'package:random_command_game/presentation/view/home/home_page.dart';
+import 'package:random_command_game/presentation/view/splash/splash_page.dart';
 import 'package:sizer/sizer.dart';
 
 class App extends StatelessWidget {
@@ -24,7 +24,7 @@ class App extends StatelessWidget {
         themeMode: themeMode,
         localizationsDelegates: AppLocalization.localizationsDelegates,
         supportedLocales: AppLocalization.supportedLocales,
-        home: const HomePage(),
+        home: const SplashPage(),
       ),
     );
   }
